@@ -47,11 +47,11 @@ jobs:
 
     services:
       mysql:
-        image: mysql/mysql-server:8.0
+        image: mysql:8.0
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_DATABASE: rasel
         ports:
-          - 3309:3309
-        options: --health-cmd="mysqladmin ping" --health-intervals=5s --health-timeout=5s --health-retries=3
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=5s --health-retries=3
 
