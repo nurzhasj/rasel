@@ -13,8 +13,7 @@ final class ForgotPasswordRequest extends BaseFormRequest
     public function rules(): array
     {
         return [
-            'phone_number' =>
-                'required',
+            'phone_number' => 'required',
             'string',
             'exists:users,phone_number',
         ];

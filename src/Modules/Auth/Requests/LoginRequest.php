@@ -13,11 +13,10 @@ final class LoginRequest extends BaseFormRequest
     public function rules(): array
     {
         return [
-            'phone_number' =>
-                'required',
-                'string',
-                'exists:users,phone_number',
-            'password' => 'required|string'
+            'phone_number' => 'required',
+            'string',
+            'exists:users,phone_number',
+            'password' => 'required|string',
         ];
     }
 

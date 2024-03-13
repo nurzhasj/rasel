@@ -9,6 +9,6 @@ final class LoginRequestDTO
     public function __construct(
         public string $phoneNumber,
         public string $password
-    ){
+    ) {
     }
 }

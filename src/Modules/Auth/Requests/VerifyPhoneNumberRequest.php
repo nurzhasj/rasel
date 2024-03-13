@@ -14,7 +14,7 @@ final class VerifyPhoneNumberRequest extends BaseFormRequest
     {
         return [
             'user_id' => 'required|int',
-            'verification_code' => 'required|string|max:4'
+            'verification_code' => 'required|string|max:4',
         ];
     }
 

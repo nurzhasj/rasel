@@ -8,15 +8,14 @@ trait HttpResponses
 {
     protected function success(
         mixed $data,
-        string $message = null,
+        ?string $message = null,
         int $code = 200
-    ): JsonResponse
-    {
+    ): JsonResponse {
         return response()->json(
             data: [
-                'status'  => 'Request was successful ✅',
+                'status' => 'Request was successful ✅',
                 'message' => $message,
-                'data' => $data
+                'data' => $data,
             ],
             status: $code
         );
@@ -24,15 +23,14 @@ trait HttpResponses
 
     protected function error(
         mixed $data = null,
-        string $message = null,
-        int $code = null
-    ): JsonResponse
-    {
+        ?string $message = null,
+        ?int $code = null
+    ): JsonResponse {
         return response()->json(
             data: [
-                'status'  => 'Error has occurred 🆘',
+                'status' => 'Error has occurred 🆘',
                 'message' => $message,
-                'data' => $data
+                'data' => $data,
             ],
             status: $code
         );

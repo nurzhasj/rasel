@@ -18,8 +18,8 @@ final class SetPasswordRequest extends BaseFormRequest
                 'string',
                 'min:6',
                 'regex:/[A-Z]/',
-                'confirmed'
-            ]
+                'confirmed',
+            ],
         ];
     }
 

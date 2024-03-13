@@ -12,6 +12,6 @@ final class RegisterRequestDTO
         public string $name,
         public string $phoneNumber,
         public ?Carbon $birthday
-    ){
+    ) {
     }
 }

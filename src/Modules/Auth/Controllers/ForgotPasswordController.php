@@ -31,7 +31,7 @@ final class ForgotPasswordController extends Controller
         return $this->success(
             data: [
                 'user' => $user,
-                'token' => $user->createToken($user->name)->plainTextToken
+                'token' => $user->createToken($user->name)->plainTextToken,
             ],
             message: 'Setting password process went successfully.'
         );

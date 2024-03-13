@@ -31,7 +31,7 @@ class Handler extends ExceptionHandler
         $this->renderable(function (CustomException $e) {
             return response()->json(
                 data: [
-                    'error' => $e->getMessage()
+                    'error' => $e->getMessage(),
                 ],
                 status: $e->getCode() ?: 500
             );

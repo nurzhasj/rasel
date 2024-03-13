@@ -27,15 +27,14 @@ final class RegisterController extends Controller
                 [
                     'name' => $dto->name,
                     'password' => $dto->name,
-                    'phone_number' =>
-                        str_replace(' ', '', $dto->phoneNumber),
-                    'birthday' => $dto->birthday
+                    'phone_number' => str_replace(' ', '', $dto->phoneNumber),
+                    'birthday' => $dto->birthday,
                 ]
             );
 
         return $this->success(
             data: [
-                'user' => $user
+                'user' => $user,
             ],
             message: 'Registration data was saved successfully.'
         );
@@ -52,8 +51,7 @@ final class RegisterController extends Controller
             ->where('id', $dto->userId)
             ->first();
 
-        if ($dto->verificationCode != substr($user->phone_number, -4))
-        {
+        if ($dto->verificationCode != substr($user->phone_number, -4)) {
             throw VerificationException::invalidVerificationCode();
         }
 
@@ -64,7 +62,7 @@ final class RegisterController extends Controller
         return $this->success(
             data: [
                 'user' => $user,
-                'token' => $user->createToken($user->name)->plainTextToken
+                'token' => $user->createToken($user->name)->plainTextToken,
             ],
             message: 'User signed in successfully.'
         );

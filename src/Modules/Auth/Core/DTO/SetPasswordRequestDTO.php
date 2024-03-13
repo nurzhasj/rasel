@@ -8,6 +8,6 @@ final class SetPasswordRequestDTO
 {
     public function __construct(
         public string $password
-    ){
+    ) {
     }
 }

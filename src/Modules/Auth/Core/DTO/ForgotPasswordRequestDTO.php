@@ -8,6 +8,6 @@ final class ForgotPasswordRequestDTO
 {
     public function __construct(
         public string $phoneNumber
-    ){
+    ) {
     }
 }
