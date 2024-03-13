@@ -8,20 +8,14 @@ use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * @test
-     */
-    public function the_application_returns_a_successful_response(): void
+    public function test_the_application_returns_a_successful_response(): void
     {
         $response = $this->get('/');
 
         $response->assertStatus(200);
     }
 
-    /**
-     * @test
-     */
-    public function a_user_can_visit_the_home_page(): void
+    public function test_a_user_can_visit_the_home_page(): void
     {
         $user = User::factory()->create();
 
