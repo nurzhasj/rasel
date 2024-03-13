@@ -18,7 +18,7 @@ final class RegisterRequest extends BaseFormRequest
             'phone_number' => [
                 'required',
                 'string',
-                'regex:/^\+7\s?\d{3}\s?\d{3}-?\d{2}-?\d{2}$/'
+                'regex:/^\+7\s?\d{3}\s?\d{3}\s?\d{2}\s?\d{2}$/'
             ],
             'birthday' => 'required|date|before:today|after:1900-01-01'
         ];

@@ -23,9 +23,9 @@ trait HttpResponses
     }
 
     protected function error(
-        mixed $data,
-        int $code,
-        string $message = null
+        mixed $data = null,
+        string $message = null,
+        int $code = null
     ): JsonResponse
     {
         return response()->json(

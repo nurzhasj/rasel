@@ -3,11 +3,19 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * @property int $id
+ * @property string $name
+ * @property string $phone_number
+ * @property Carbon $phone_number_verified_at
+ * @property Carbon $birthday
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -19,8 +27,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
         'password',
+        'phone_number',
+        'birthday'
     ];
 
     /**

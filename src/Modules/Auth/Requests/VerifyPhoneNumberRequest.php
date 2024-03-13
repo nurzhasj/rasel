@@ -13,6 +13,7 @@ final class VerifyPhoneNumberRequest extends BaseFormRequest
     public function rules(): array
     {
         return [
+            'user_id' => 'required|int',
             'verification_code' => 'required|string|max:4'
         ];
     }
@@ -22,6 +23,7 @@ final class VerifyPhoneNumberRequest extends BaseFormRequest
         $validated = $this->validated();
 
         return new VerifyPhoneNumberRequestDTO(
+            userId: (int) Arr::get($validated, 'user_id'),
             verificationCode: Arr::get($validated, 'verification_code')
         );
     }
