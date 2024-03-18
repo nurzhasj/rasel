@@ -47,6 +47,12 @@ services:
                 - '-p${DB_PASSWORD}'
             retries: 3
             timeout: 5s
+    composer:
+        image: composer:latest
+        volumes:
+            - .:/app
+        working_dir: /app
+        command: install
 networks:
     sail:
         driver: bridge
