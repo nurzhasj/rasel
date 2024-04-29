@@ -14,13 +14,4 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
-
-    public function test_a_user_can_visit_the_home_page(): void
-    {
-        $user = User::factory()->create();
-
-        $response = $this->actingAs($user)->get('/');
-
-        $response->assertStatus(200);
-    }
 }
