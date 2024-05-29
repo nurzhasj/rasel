@@ -18,7 +18,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return Auth::user()->id == 1
+            return Auth::user()->id == env('ADMIN_ID')
                 ? redirect()->intended('orders')
                 : redirect()->intended('send-order');
         }

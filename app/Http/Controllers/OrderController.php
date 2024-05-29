@@ -11,9 +11,9 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class OrderController extends Controller
 {
-    public function index(Request $request): View
+    public function index(): View
     {
-        if (auth()->user()->id == 1) {
+        if (auth()->user()->id == env('ADMIN_ID')) {
             $orders = Order::with('user')->get();
         } else {
             $orders = Order::with('user')

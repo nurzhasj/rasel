@@ -26,13 +26,13 @@
     </div>
 
     <div class="container">
-        @if(auth()->user()->id == 1)
+        @if(auth()->user()->id == env('ADMIN_ID'))
             <h1 class="mb-4">Дэшборд</h1>
         @else
             <h1 class="mb-4">Онлайн услуги</h1>
         @endif
 
-        @if(auth()->user()->id == 1)
+        @if(auth()->user()->id == env('ADMIN_ID'))
             <p>Здесь вы можете видеть все заявки на документы.</p>
         @else
             <p>Здесь вы можете видеть все ваши документы.</p>
@@ -40,7 +40,7 @@
 
 
         <nav class="nav nav-pills mb-3">
-            @if(auth()->user()->id == 1)
+            @if(auth()->user()->id == env('ADMIN_ID'))
                 <a class="nav-item nav-link {{ request()->is('orders') ? 'active' : '' }}" href="{{ url('/orders') }}">Запросы</a>
                 <a class="nav-item nav-link {{ request()->is('users') ? 'active' : '' }}" href="{{ url('/users') }}">Студенты</a>
             @else
@@ -54,7 +54,7 @@
                 <thead class="thead-dark">
                 <tr>
                     <th>#</th>
-                    @if(auth()->user()->id == 1)
+                    @if(auth()->user()->id == env('ADMIN_ID'))
                         <th>Username</th>
                     @endif
                     <th>Заказ</th>
@@ -70,7 +70,7 @@
                 @foreach ($orders as $order)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        @if(auth()->user()->id == 1)
+                        @if(auth()->user()->id == env('ADMIN_ID'))
                             <td>{{ $order->user->username }}</td>
                         @endif
                         <td>{{ $order->order_type }}</td>
@@ -81,10 +81,10 @@
                             {{ ucfirst($order->status) }}
                         </td>
                         <td>
-                            @if(auth()->user()->id == 1 && !$order->file)
+                            @if(auth()->user()->id == env('ADMIN_ID') && !$order->file)
                                 <input type="file" id="pdf_{{ $order->id }}" style="display: none;" onchange="uploadPDF({{ $order->id }})" accept="application/pdf">
                                 <button onclick="document.getElementById('pdf_{{ $order->id }}').click()" class="btn btn-primary btn-sm">Загрузить PDF</button>
-                            @elseif(auth()->user()->id != 1 && !$order->file)
+                            @elseif(auth()->user()->id != env('ADMIN_ID') && !$order->file)
                                 <a href="{{ route('orders.downloadPdf', $order->id) }}" class="btn btn-sm btn-outline-secondary">
                                     <img src='https://img.freepik.com/free-vector/loading-circles-blue-gradient_78370-2646.jpg' alt="" width="20px" height="20px">
                                 </a>

@@ -11,7 +11,7 @@ class UsersController extends Controller
     {
         $users = User::query()
             ->with('orders')
-            ->where('id', '!=', 1)
+            ->where('id', '!=', env('ADMIN_ID'))
             ->get();
 
         return view('users', compact('users'));
