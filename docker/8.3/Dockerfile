@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM ubuntu:22.04
 
 LABEL maintainer="Taylor Otwell"
 
@@ -53,7 +53,7 @@ RUN setcap "cap_net_bind_service=+ep" /usr/bin/php8.3
 
 RUN groupadd --force -g $WWWGROUP sail
 RUN useradd -ms /bin/bash --no-user-group -g $WWWGROUP -u 1337 sail
-RUN apk add shadow && usermod -u 1000 www-data && groupmod -g 1000 www-data
+# RUN apk add shadow && usermod -u 1000 www-data && groupmod -g 1000 www-data
 
 COPY start-container /usr/local/bin/start-container
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
